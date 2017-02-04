@@ -17,14 +17,24 @@ from django.conf.urls import url, include
 from rest_framework import routers
 from apps.redSocial import views
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'areas', views.AreaConocimientoViewSet)
 router.register(r'intereses',views.InteresViewSet)
+router.register(r'multimedia',views.MultimediaViewSet)
+router.register(r'post',views.PostViewSet)
+router.register(r'perfil',views.PerfilViewSet)
+router.register(r'evento',views.EventoViewSet)
 
-urlpatterns = [
+
+urlpatterns = [ 
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^admin/', admin.site.urls),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
