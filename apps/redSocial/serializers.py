@@ -1,7 +1,9 @@
 from rest_framework.serializers import ModelSerializer
-from django.contrib.auth.models import User
-from apps.redSocial.models import Perfil, AreaConocimiento, Interes, Multimedia, Canal, Post, Like, Comentario, Evento
+#from django.contrib.auth.models import User
+from apps.redSocial.models import AreaConocimiento, Interes, Multimedia, Canal, Post, Like, Comentario, Evento
 from rest_framework import serializers
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 class UserSerializer(ModelSerializer):
 	class Meta:
@@ -28,20 +30,12 @@ class MultimediaSerializer(ModelSerializer):
 		model = Multimedia
 		fields = ('recurso', 'tipo')
 
-class PerfilSerializer(ModelSerializer):
-	usuario=UserSerializer()
-	intereses=serializers.StringRelatedField(many=True)
+class CanalSerializer(ModelSerializer):
+	usuario=serializers.PrimaryKeyRelatedField(many=False, queryset= User.objects.all())
 	areasConocimiento=serializers.PrimaryKeyRelatedField(many=True, queryset= AreaConocimiento.objects.all())
 	class Meta:
-		model = Perfil
-		fields = ('usuario', 'intereses', 'areasConocimiento', 'fechaNacimiento', 'sexo', 'foto')
-
-class CanalSerializer(ModelSerializer):
-	propietario=PropietarioSerializer()
-	areasConocimiento=AreaConocimientoSerializer()
-	class Meta:
 		model = Canal
-		fields = ('propietario', 'areasConocimiento', 'nombre', 'descripcion', 'fecha', 'logo', 'estatus')
+		fields = ('usuario', 'areasConocimiento', 'nombre', 'descripcion', 'fecha', 'logo', 'estatus')
 
 class EventoSerializer(ModelSerializer):
 	propietario=PropietarioSerializer()
@@ -52,10 +46,10 @@ class EventoSerializer(ModelSerializer):
 class PostSerializer(ModelSerializer):
 	usuario = serializers.PrimaryKeyRelatedField(many=False, queryset= User.objects.all())
 	canal = serializers.PrimaryKeyRelatedField(many=False, queryset= Canal.objects.all())
-	multimedia = serializers.PrimaryKeyRelatedField(many=False, queryset= Multimedia.objects.all())
+	multimedia = MultimediaSerializer()
 	class Meta:
 		model = Post
-		fields = ('contenido', 'canal', 'usuario', 'multimedia', 'creado_en', 'estatus')
+		fields = ('contenido', 'canal', 'usuario', 'multimedia', 'creado_en', 'estatus', 'comentarios', 'likes')
 
 class LikeSerializer(ModelSerializer):
 	propietario = PropietarioSerializer()

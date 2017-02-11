@@ -39,11 +39,24 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.redSocial',
     'rest_framework',
+    'rest_framework.authtoken',
+    'django.contrib.sites',
+    'rest_auth',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'rest_auth.registration',
 ]
+
+#Sitio Creado por defecto
+SITE_ID = 1
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAdminUser',
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES' : [
+        'rest_framework.authentication.TokenAuthentication',
     ],
     'PAGE_SIZE': 10
 }
@@ -139,3 +152,8 @@ STATIC_URL = '/static/'
 #rutas de los recursos multimedia que se suben
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+AUTH_USER_MODEL = 'redSocial.Usuario'
+
+#Para que funcione el proceso de registro
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
