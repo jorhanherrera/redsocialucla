@@ -59,8 +59,7 @@ class LikeSerializer(ModelSerializer):
 		fields = ('propietario', 'post', 'fecha', 'estatus')
 
 class ComentarioSerializer(ModelSerializer):
-	propietario = PropietarioSerializer()
-	post = PostSerializer()
+	usuario = PropietarioSerializer()
 	class Meta:
-		model = Like
-		fields = ('propietario', 'post', 'mensaje', 'fecha', 'estatus')
+		model = Comentario
+		fields = ('usuario', 'post', 'mensaje', 'fecha', 'estatus')

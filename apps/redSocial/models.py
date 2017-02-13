@@ -23,6 +23,7 @@ class Usuario(AbstractUser):
 	foto = models.ImageField(blank=True, null=True)
 	intereses = models.ManyToManyField(Interes)
 	areasConocimiento = models.ManyToManyField(AreaConocimiento)
+	cedula = models.CharField(max_length=10, blank=False)
 
 class Seguimiento(models.Model):
 	seguidor = models.ForeignKey(Usuario, editable=True,
@@ -63,7 +64,9 @@ class Post(models.Model):
 	usuario = models.ForeignKey(Usuario,on_delete=models.CASCADE)
 	creado_en = models.DateTimeField(auto_now_add=True)
 	estatus = models.CharField(max_length=1)
-	multimedia = models.OneToOneField(Multimedia, on_delete=models.CASCADE, blank=True, null=True)
+	multimedia = models.OneToOneField(Multimedia,
+						 on_delete=models.CASCADE,
+						  blank=True, null=True)
 
 class Like(models.Model):
 	usuario = models.ForeignKey(Usuario,on_delete=models.CASCADE)
