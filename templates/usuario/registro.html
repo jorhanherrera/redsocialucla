@@ -1,0 +1,77 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exodo</title>
+
+    <!-- BOOTSTRAP STYLES-->
+    
+
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" />
+       <!--CUSTOM BASIC STYLES-->
+    <link href="{% static 'css/basic.css' %}" rel="stylesheet" />
+    <!--CUSTOM MAIN STYLES-->
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <div id="wrapper">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="panel panel-danger">
+                    <div class="panel-heading">
+                       Registro
+                    </div>
+                    <div class="panel-body">
+                        <form role="form">
+                                    
+                            <div class="form-group">
+                                    <label>Ingrese Correo</label>
+                                    <input class="form-control" type="text">
+                                    <p class="help-block">ejemplo@mail.com</p>
+                            </div>
+                            <div class="form-group">
+                                    <label>Ingrese Contraseña</label>
+                                    <input class="form-control" type="password">
+                                    <p class="help-block">texto ayuda</p>
+                            </div>
+                            <div class="form-group">
+                                    <label>Repita Contraseña</label>
+                                    <input class="form-control" type="password">
+                                 <p class="help-block">texto ayuda</p>
+                            </div>
+                             
+                                    <button type="submit" class="btn btn-danger">Register Now </button>
+
+                        </form>
+                    </div>
+            </div>
+        </div>
+       
+    </div>
+            <!-- /. PAGE INNER  -->
+        
+        <!-- /. PAGE WRAPPER  -->
+   
+    <!-- /. WRAPPER  -->
+
+   
+    <!-- /. FOOTER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="{% static 'js/jquery-1.10.2.js' %}"></script>
+    <!-- BOOTSTRAP SCRIPTS -->
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="{% static 'js/jquery.metisMenu.js' %}"></script>
+       <!-- CUSTOM SCRIPTS -->
+    <script src="{% static 'js/jquery-1.10.2.js' %}"></script>
+    
+
+
+</body>
+</html>

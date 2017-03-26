@@ -1,0 +1,80 @@
+{% extends 'base/base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+	{% include 'base/barranavegacion.html' %}
+        <!-- /. NAV TOP  -->
+    {% include 'base/barraizquierda.html' %}
+  <div id="page-wrapper">
+            <div id="page-inner">
+            {% include 'base/barraexplorer.html '%}
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">Actividades</h1>
+                        <h1 class="page-subhead-line">Puedes ver las actividades de tus seguidores </h1>
+
+                    </div>
+                </div>
+			<div class="row">
+			   <div class="col-md-12">
+			       <div class="panel panel-primary">
+
+					      <div class="panel-heading">Lista de actividades</div>
+
+					      <!-- Table -->
+					      <table class="table">
+					        <thead>
+					          <tr>
+					            <th>#</th>
+					            <th>Nombre de la Actividad</th>
+					            <th>Fecha</th>
+					            <th>Acción</th>
+					          </tr>
+					        </thead>
+					        <tbody>
+					          <tr class="list-group-item-success">
+					            <td>1</td>
+					            <td>Charla de empredimiento</td>
+					            <td>23rd June </td>
+					            <td><a href="#" class="btn btn-primary ">Asistir</a></td>
+					          </tr>
+					          <tr class="list-group-item-danger">
+					            <td>2</td>
+					            <td>Taller de Redes sociales</td>
+					            <td>10th November </td>
+					            <td><a href="#" class="btn btn-success">Asistir</a></td>
+					          </tr>
+					          <tr class="list-group-item-info">
+					            <td>3</td>
+					            <td>Conferencia</td>
+					            <td>2nd December </td>
+					            <td><a href="#" class="btn btn-primary">Asistir</a></td>
+					          </tr>
+					            <tr class="list-group-item-warning">
+					            <td>4</td>
+					            <td>Robótica</td>
+					            <td>23rd June </td>
+					            <td><a href="#" class="btn btn-danger">Asistir</a></td>
+					          </tr>
+					          <tr class="list-group-item-info">
+					            <td>5</td>
+					            <td>Programación</td>
+					            <td>10th November </td>
+					            <td><a href="#" class="btn btn-warning">Asistir</a></td>
+					          </tr>
+					          <tr class="list-group-item-danger">
+					            <td>6</td>
+					            <td>Curso de ingles</td>
+					            <td>2nd December </td>
+					            <td><a href="#" class="btn btn-info">Asistir</a></td>
+					          </tr>
+					        </tbody>
+					      </table>
+			        </div>
+			    </div>
+			</div>
+	   </div>
+	</div>
+
+{% endblock %}

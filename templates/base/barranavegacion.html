@@ -1,0 +1,22 @@
+{% load staticfiles %}
+       <script src="{% static 'js/consumir/InicioSesion.js' %}"></script>
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://localhost:8000/inicio/"><img src="{% static 'img/logoexodo.png' %}"></a>
+            </div>
+
+            <div class="header-right">
+
+                <a href="http://localhost:8000/mensaje/" class="btn btn-info" title="Mensajes"><b>30 </b><i class="fa fa-envelope-o fa-2x"></i></a>
+                <a href="http://localhost:8000/notificacion/" class="btn btn-primary" title="Notificationes"><b>40 </b><i class="fa fa-bell fa-2x"></i></a>
+                <a onclick="CerrarSesion()" class="btn btn-danger" title="Cerrar Sesiòn"><i class="fa fa-power-off fa-2x"></i></a>
+
+            </div>
+        </nav>
+

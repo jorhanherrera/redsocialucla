@@ -1,0 +1,97 @@
+{% load staticfiles %}
+    <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li>
+                        <div class="user-img-div">
+                            <img src="{% static 'img/user.png' %}" class="img-thumbnail" />
+
+                            <div class="inner-text">
+                                Jorhan Herrera
+                            <br />
+                                <small>Último acceso : Hace 2 semanas </small>
+                            </div>
+                        </div>
+
+                    </li>
+
+
+                    <li>
+                        <a class="active-menu" href="http://localhost:8000/inicio/"><i class="fa fa-dashboard "></i>Inicio</a>
+                    </li>
+                   
+                    <li>
+                        <a href="#"><i class="fa fa-sign-in "></i>Sesión <span class="fa arrow"></span></a>
+                         <ul class="nav nav-second-level">
+                            <li>
+                                <a href="http://localhost:8000/perfil/"><i class="fa fa-user "></i>Perfil</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost:8000/miscanales/"><i class="fa fa-folder-open"></i>Mis canales</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost:8000/mensaje/"><i class="fa fa-envelope-o"></i>Mensajes</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost:8000/notificacion/"><i class="fa fa-bell "></i>Notificationes</a>
+                            </li>
+                             <li>
+                                <a href="http://localhost:8000/misseguidores/"><i class="fa fa-hand-o-right "></i>Mis Seguidores</a>
+                            </li>
+                             <li>
+                                <a href="http://localhost:8000/misseguidos/"><i class="fa fa-hand-o-left"></i>Mis Seguidos</a>
+                            </li>
+                             <li>
+                                <a href="http://localhost:8000/areadeinteres/"><i class="fa fa-check "></i>Áreas de Interés</a>
+                            </li>
+                             <li>
+                                <a href="#"><i class="fa fa-book "></i>Áreas de conocimiento</a>
+                            </li>
+                             <li>
+                                <a href="http://localhost:8000/actividad/"><i class="fa fa-edit "></i>Actividades</a>
+                            </li>
+                            
+                            
+                           
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-list-alt "></i>Emplorar <span class="fa arrow"></span></a>
+                         <ul class="nav nav-second-level">
+                            <li>
+                                <a href="http://localhost:8000/canales/"><i class="fa fa-globe"></i>Canales</a>
+                            </li>  
+                            <li>
+                                <a href="http://localhost:8000/seguidores/"><i class="fa fa-hand-o-right"></i>Seguidores</a>
+                            </li>                            
+                           
+                        </ul>
+                    </li>
+                     <li>
+                        <a href="#"><i class="fa fa-yelp "></i>Extra <span class="fa arrow"></span></a>
+                         <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#"><i class="fa fa-wrench"></i>Configuración</a>
+                            </li>                            
+                           
+                        </ul>
+                    </li>
+                   
+                     <li>
+                        <a href="#"><i class="fa fa-sign-in "></i>Salir <span class="fa arrow"></span></a>
+                         <ul class="nav nav-second-level">
+                           
+                            <li>
+                              <a href="http://localhost:8000/index/"><i class="fa fa-power-off "></i>Cerrar Sesión</a>
+                            </li>
+                            
+                           
+                        </ul>
+                    </li>
+                
+                   
+                </ul>
+
+            </div>
+
+        </nav>

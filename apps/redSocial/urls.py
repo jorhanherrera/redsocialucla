@@ -1,12 +1,8 @@
-
-
-#aun no se usara de esta forma
-from django.conf.urls import url, include
+from django.conf.urls import include, url
 from rest_framework import routers
 from apps.redSocial import views
-from django.contrib import admin
-from django.conf import settings
-from django.conf.urls.static import static
+
+
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
@@ -19,16 +15,18 @@ router.register(r'private-timeline',views.PrivateTimelineViewSet)
 router.register(r'canal-timeline',views.CanalTimelineViewSet)
 router.register(r'canales',views.CanalViewSet)
 router.register(r'user-timeline',views.UserTimelineViewSet)
-
+router.register(r'comentarios',views.ComentarioViewSet)
+router.register(r'like',views.LikeViewSet)
+router.register(r'post-comentarios',views.PostComentariosViewSet)
 
 urlpatterns = [ 
-    url(r'^', include(router.urls)),
+    url(r'^entities/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^admin/', admin.site.urls),
     url(r'^rest-auth/', include('rest_auth.urls')),
     url(r'^rest-auth/registration/', include('rest_auth.registration.urls')),
-
+    url(r'^entities/cumlaude/(?P<pk>\d+)/', views.CumlaudeConsulta, name= 'cumlaude'),
+    url(r'^entities/seguir/$', views.Seguir, name= 'seguir'),
+    url(r'^entities/seguidores/(?P<pk>\d+)/', views.Seguidores, name= 'seguidores'),
+    url(r'^entities/seguidos/(?P<pk>\d+)/', views.Seguidos, name= 'seguidos'),
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

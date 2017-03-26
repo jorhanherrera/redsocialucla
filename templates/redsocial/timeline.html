@@ -1,0 +1,148 @@
+<script>
+    if (localStorage.getItem('logeado')==0){
+        window.location="http://localhost:8000/index";
+    }
+</script>
+{% extends 'base/basetimeline.html' %}
+{% load staticfiles %}
+    
+{% block timeline %}
+
+                    <div class="panel-body">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#home" data-toggle="tab"><i class="fa fa-unlock-alt"> Inicio Privado</i></a>
+                                </li>
+                                <li class=""><a href="#profile" data-toggle="tab"><i class="fa fa-unlock"> Inicio Público</i></a>
+                                </li>
+                            </ul>
+                            <br>
+                            
+                            
+                               <div class="tab-content">
+                                <div class="tab-pane fade active in" id="home"  >
+
+                                    <div class="panel-footer">
+
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="¿Algo importante que aportar?" />
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-success" type="button">Publicar</button>
+                                            </span>
+                                        </div>
+                                        <a href="#"  data-toggle="modal" data-target="#myModal"><i class="fa fa-camera"></i> Foto/Video</a>
+                                    </div><br>
+
+                                    <div data-bind="foreach: posts"> 
+                                        <div class="panel-footer">
+
+
+                                                <h4 data-bind="text: contenido" style="font-size: 30px; border-bottom: medium double #369;"><i class="fa fa-quote-left"></i> <i class="fa fa-quote-right"></i>
+                                                </h4><br>
+                                                <div class="col-lg-4 col-4 col-sm-4">
+                                                    <div class="blog_commentbox">
+                                                   <i class="fa fa-thumbs-o-up fa-2x" data-bind="text: likes().length" style="color: blue"></i>
+                                                                      
+                                                    </div>
+                                                </div>
+                                                 <div class="col-lg-4 col-4 col-sm-4" >
+                                                    <div class="blog_commentbox">
+                                                     
+                                                      <i class="fa fa-comments-o fa-2x" data-bind="text: comentarios().length" style="color: blue"></i>                     
+                                                    </div>
+                                                </div>
+                                               
+                                                <div class="user-img pull-right">
+                                                    <img data-bind="attr:{src: usuario.foto}" class="img-thumbnail" alt="" class="img-u image-responsive" 
+                                                    style="border-radius: 50%; width: 40px; height: 40px" />
+                                                </div>
+
+
+                                                <h5 class="pull-right"><strong class="c-black" data-bind="text: usuario.username">José herrera </strong></h5><br><br> 
+
+                                                <div class="panel-body">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" placeholder="Escribe un comentario" />
+                                                        <span class="input-group-btn">
+                                                            <button class="btn btn-warning" type="button">Comentar</button>
+                                                        </span>
+                                                    </div>
+                                                    <div class="list-group" data-bind="foreach: comentarios">
+
+                                                        <div class="list-group-item">
+                                                            <div class="row">
+                                                                <div class="col-lg-2 col-2 col-sm-2">  
+                                                                    <div class="user-img pull-lefth">
+                                                                        <img data-bind="attr:{src: usuario.foto}" class="img-thumbnail" alt="" class="img-u image-responsive" 
+                                                                        style="border-radius: 50%; width: 40px; height: 40px" />
+                                                                         <span class="pull-right text-muted small" data-bind="text: usuario.username"><em></em>
+                                                                    </span>
+                                                                    </div>
+                                                                   
+                                                                </div>
+                                                                <div class="col-lg-8 col-8 col-sm-8">  
+                                                                    <p class="pull-lefth" data-bind="text: mensaje"></p>
+                                                                </div>
+                                                                <div class="col-lg-2 col-2 col-sm-2">  
+                                                                    <span class="pull-right text-muted small" >12 min<em></em>
+                                                                    </span>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                       
+                                                     </div>
+                                                </div>
+                                       
+                                        </div><br>
+                                    </div>
+                     
+                                </div>
+                                    
+
+
+                                <div class="tab-pane fade" id="profile">
+                                    <div class="jumbotron">
+                                            <h4><i class="fa fa-quote-left"></i>Lorem ipsum dolor sit amet, consectetur adipiscing Lorem ipsum dolor sit amet, consectetur adipiscing elit onec molestie non sem vel condimentum. <i class="fa fa-quote-right"></i>
+                                            </h4>
+                                            <div class="user-img pull-right">
+                                                <img src="{% static 'img/user2.png' %}" alt="" class="img-u image-responsive" 
+                                                style="border-radius: 50%; width: 40px; height: 40px" />
+                                            </div>
+                                            <h5 class="pull-right"><strong class="c-black">Jorhan herrera </strong></h5>
+                                    </div>
+
+                                    <div class="jumbotron">
+                                            <h4><i class="fa fa-quote-left"></i>Lorem ipsum dolor sit amet, consectetur adipiscing Lorem ipsum dolor sit amet, consectetur adipiscing elit onec molestie non sem vel condimentum. <i class="fa fa-quote-right"></i>
+                                            </h4>
+                                            <div class="user-img pull-right">
+                                                <img src="{% static 'img/user2.png' %}" alt="" class="img-u image-responsive" 
+                                                style="border-radius: 50%; width: 40px; height: 40px" />
+                                            </div>
+                                            <h5 class="pull-right"><strong class="c-black">Jorhan herrera </strong></h5>
+                                    </div>
+                                
+                                </div>
+
+
+
+                                            
+                                 </div>
+
+
+
+
+
+
+
+
+                           
+    
+                        </div>
+{% endblock timeline %}
+
+{% block js_in_footer%}
+
+<script src="{% static 'js/inicio.js' %}"></script>
+
+{% endblock js_in_footer%}
+

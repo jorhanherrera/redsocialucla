@@ -1,0 +1,199 @@
+{% extends 'base/base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<div id="wrapper">
+        
+        {% include 'base/barranavegacion.html' %}
+        <!-- /. NAV TOP  -->
+        {% include 'base/barraizquierda.html' %}
+        <!-- /. NAV SIDE  -->
+     
+             
+
+    </div>
+           
+    <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">Áreas de Interés</h1>
+                        <h1 class="page-subhead-line">Selecciona tus áreas de interés preferidas </h1>
+
+                    </div>
+                </div>     
+
+
+
+
+                <div class="row">
+                    
+
+                        <div class="col-md-2">
+                            <div class="btn-group" data-toggle="buttons">
+            
+                                <label class="btn btn-warning">
+                                    <input type="checkbox" autocomplete="off" checked><img src="{% static 'img/1.png' %}">Administr...
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-group" data-toggle="buttons">
+            
+                                <label class="btn btn-warning">
+                                    <input type="checkbox" autocomplete="off" checked><img src="{% static 'img/2.png' %}">Alimentos
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-group" data-toggle="buttons">
+            
+                                <label class="btn btn-warning">
+                                    <input type="checkbox" autocomplete="off" checked><img src="{% static 'img/3.png' %}">Arquitectura
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-group" data-toggle="buttons">
+            
+                                <label class="btn btn-warning">
+                                    <input type="checkbox" autocomplete="off" checked><img src="{% static 'img/4.png' %}">Arte
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-group" data-toggle="buttons">
+            
+                                <label class="btn btn-warning">
+                                    <input type="checkbox" autocomplete="off" checked><img src="{% static 'img/5.png' %}">Contaduria
+                                </label>
+                            </div>
+                        </div>
+                                        
+                </div>
+                <div class="row">
+                    
+
+                        <div class="col-md-2">
+                            <div class="btn-group" data-toggle="buttons">
+            
+                                <label class="btn btn-warning">
+                                    <input type="checkbox" autocomplete="off" checked><img src="{% static 'img/6.png' %}">Ciencia
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-group" data-toggle="buttons">
+            
+                                <label class="btn btn-warning">
+                                    <input type="checkbox" autocomplete="off" checked><img src="{% static 'img/7.png' %}">Cultura
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-group" data-toggle="buttons">
+            
+                                <label class="btn btn-warning">
+                                    <input type="checkbox" autocomplete="off" checked><img src="{% static 'img/8.png' %}">Diseño
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-group" data-toggle="buttons">
+            
+                                <label class="btn btn-warning">
+                                    <input type="checkbox" autocomplete="off" checked><img src="{% static 'img/9.png' %}">Educación
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-group" data-toggle="buttons">
+            
+                                <label class="btn btn-warning">
+                                    <input type="checkbox" autocomplete="off" checked><img src="{% static 'img/10.png' %}">Finanza
+                                </label>
+                            </div>
+                        </div>
+                                      
+                </div>
+                <div class="row">
+                    
+
+                        <div class="col-md-2">
+                            <div class="btn-group" data-toggle="buttons">
+            
+                                <label class="btn btn-warning">
+                                    <input type="checkbox" autocomplete="off" checked><img src="{% static 'img/11.png' %}">Matemática
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-group" data-toggle="buttons">
+            
+                                <label class="btn btn-warning">
+                                    <input type="checkbox" autocomplete="off" checked><img src="{% static 'img/12.png' %}">Produción
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-group" data-toggle="buttons">
+            
+                                <label class="btn btn-warning">
+                                    <input type="checkbox" autocomplete="off" checked><img src="{% static 'img/13.png' %}">Psicología
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-group" data-toggle="buttons">
+            
+                                <label class="btn btn-warning">
+                                    <input type="checkbox" autocomplete="off" checked><img src="{% static 'img/14.png' %}">Salud
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-group" data-toggle="buttons">
+            
+                                <label class="btn btn-warning">
+                                    <input type="checkbox" autocomplete="off" checked><img src="{% static 'img/15.png' %}">Tecnología
+                                </label>
+                            </div>
+                        </div>
+                                      
+                </div>
+
+                <div class="row" style="margin-top: 25px">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-4">
+                        <input type="submit" class="form-control btn btn-info" />
+                    </div>
+                </div>
+
+    </div>
+   
+     {% include 'base/script.html '%}
+    
+
+    <style type="text/css">
+.btn span.glyphicon {               
+    opacity: 0;             
+}
+.btn.active span.glyphicon {                
+    opacity: 1;  
+
+}
+
+label.btn{
+    
+    background: #fff;
+    color: #000;
+    margin-top: 20px;
+  max-width: 165px;
+  min-width: 165px;
+}
+}
+    </style>
+    
+{% endblock %}

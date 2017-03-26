@@ -1,0 +1,131 @@
+<script>
+    if (localStorage.getItem('logeado')==1){
+        window.location="http://localhost:8000/inicio";
+    }
+</script>
+{% extends 'base/base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <div id="wrapper">
+
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+         <div class="row" >
+             <div class="col-md-6"> 
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="{% static 'img/logoexodo.png' %}"></a>
+                </div>
+                </div>
+            
+                   
+                        <div style="margin-top: 20px">
+                             <div class="col-md-2">
+                                <input id="login_usuario" type="text" class="form-control" placeholder="Nombre de usuario" />
+                             </div>
+                             <div class="col-md-2">
+                                <input id="login_password" type="password" class="form-control" placeholder="Contraseña" style="margin-left: -25px"/>
+                             </div>   
+                             <div class="col-md-1">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-info" type="button" onclick="IniciarSesion()" style="margin-left: -50px"><b>Entrar </b><i class="fa fa-sign-in fa-2x"></i></button>
+                                </span>
+                             </div>
+                             <div class="col-md-1">
+                                <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="margin-left: -55px"><b>Registro </b><i class="fa fa-pencil-square-o fa-2x"></i></a>
+                             </div>
+                        </div>
+                         
+
+           
+        </div>
+        </nav>
+        <div class="col-md-3"></div>
+       
+       
+    </div>
+          
+
+
+<div id="myModal2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Iniciar Sesión</h4>
+        </div>
+                <div class="modal-body">
+                    <div class="panel-body">
+                        <form role="form">
+                                    
+                            <div class="form-group">
+                                <label>Ingrese Correo</label>
+                                <input class="form-control" type="text">
+                                 <p class="help-block">ejemplo@mail.com</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Ingrese Contraseña</label>
+                                <input class="form-control" type="password">
+                                 <a href="#">¿Olvidaste tu contraseña?</a>
+                            </div>
+
+                             
+                            <button type="submit" class="btn btn-info">Entrar </button>
+
+                        </form>
+                    </div>
+                </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+             <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Verificación de usuario</h4>
+        </div>
+                <div class="modal-body">
+                    <div class="panel-body">
+                        <form role="form">
+                                    
+                             <div class="form-group">
+                                <label>Ingrese Cédula</label>
+                                <input class="form-control" type="text">
+                                 <p class="help-block">Esta red social es solo para egresados de la Ucla</p>
+                            </div>
+
+                             
+                            <button type="submit" class="btn btn-info">Consultar </button>
+
+                        </form>
+                    </div>
+                </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+    {% include 'base/script.html '%}
+{% endblock %}

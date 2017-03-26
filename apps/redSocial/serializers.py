@@ -1,6 +1,8 @@
 from rest_framework.serializers import ModelSerializer
 #from django.contrib.auth.models import User
-from apps.redSocial.models import AreaConocimiento, Interes, Multimedia, Canal, Post, Like, Comentario, Evento
+from apps.redSocial.models import AreaConocimiento, Interes,\
+								  Multimedia, Canal, Post, Like,\
+								  Comentario, Evento, Notificacion
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 User = get_user_model()
@@ -13,7 +15,13 @@ class UserSerializer(ModelSerializer):
 class PropietarioSerializer(ModelSerializer):
 	class Meta:
 		model=User
-		fields=('username', 'is_active')
+		fields=('username', 'foto', 'is_active')
+
+class CommentSerializer(ModelSerializer):
+	usuario=PropietarioSerializer()
+	class Meta:
+		model=Comentario
+		fields=('fecha', 'usuario', 'mensaje' )
 
 class AreaConocimientoSerializer(ModelSerializer):
 	class Meta:
@@ -31,8 +39,8 @@ class MultimediaSerializer(ModelSerializer):
 		fields = ('recurso', 'tipo')
 
 class CanalSerializer(ModelSerializer):
-	usuario=serializers.PrimaryKeyRelatedField(many=False, queryset= User.objects.all())
-	areasConocimiento=serializers.PrimaryKeyRelatedField(many=True, queryset= AreaConocimiento.objects.all())
+	usuario=PropietarioSerializer(many=False, read_only=True)
+	areasConocimiento=AreaConocimientoSerializer(many=True, read_only=True)
 	class Meta:
 		model = Canal
 		fields = ('usuario', 'areasConocimiento', 'nombre', 'descripcion', 'fecha', 'logo', 'estatus')
@@ -44,22 +52,29 @@ class EventoSerializer(ModelSerializer):
 		fields = ('titulo', 'descripcion', 'fecha', 'logo', 'propietario', 'estatus')
 
 class PostSerializer(ModelSerializer):
-	usuario = serializers.PrimaryKeyRelatedField(many=False, queryset= User.objects.all())
-	canal = serializers.PrimaryKeyRelatedField(many=False, queryset= Canal.objects.all())
+	usuario = PropietarioSerializer()
+	canal = CanalSerializer(many=False, read_only=True)
 	multimedia = MultimediaSerializer()
+	comentarios=CommentSerializer(many=True, read_only=True)
 	class Meta:
 		model = Post
-		fields = ('contenido', 'canal', 'usuario', 'multimedia', 'creado_en', 'estatus', 'comentarios', 'likes')
+		fields = ('id','contenido', 'canal', 'usuario', 'multimedia', 'creado_en', 'estatus', 'comentarios', 'likes',)
 
 class LikeSerializer(ModelSerializer):
-	propietario = PropietarioSerializer()
-	post = PostSerializer()
+	usuario = PropietarioSerializer()
 	class Meta:
 		model = Like
-		fields = ('propietario', 'post', 'fecha', 'estatus')
+		fields = ('usuario', 'post', 'fecha', 'estatus')
 
 class ComentarioSerializer(ModelSerializer):
 	usuario = PropietarioSerializer()
 	class Meta:
 		model = Comentario
 		fields = ('usuario', 'post', 'mensaje', 'fecha', 'estatus')
+
+class NotificacionSerializer(ModelSerializer):
+	emisor = PropietarioSerializer()
+	receptor = PropietarioSerializer()
+	class Meta:
+		model = Notificacion
+		fields = ('tipo', 'creado_en', 'visto')

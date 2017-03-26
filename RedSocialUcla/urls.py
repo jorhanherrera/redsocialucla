@@ -20,30 +20,11 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
-router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'areas', views.AreaConocimientoViewSet)
-router.register(r'intereses',views.InteresViewSet)
-router.register(r'multimedia',views.MultimediaViewSet)
-router.register(r'evento',views.EventoViewSet)
-router.register(r'public-timeline',views.PublicTimelineViewSet)
-router.register(r'private-timeline',views.PrivateTimelineViewSet)
-router.register(r'canal-timeline',views.CanalTimelineViewSet)
-router.register(r'canales',views.CanalViewSet)
-router.register(r'user-timeline',views.UserTimelineViewSet)
-router.register(r'comentarios',views.ComentarioViewSet)
-router.register(r'post-comentarios',views.PostComentariosViewSet)
-
-urlpatterns = [ 
-    url(r'^', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^rest-auth/', include('rest_auth.urls')),
-    url(r'^rest-auth/registration/', include('rest_auth.registration.urls')),
-    url(r'^cumlaude/(?P<pk>\d+)/', views.CumlaudeConsulta, name= 'cumlaude'),
-    url(r'^seguir/$', views.Seguir, name= 'seguir'),
-    url(r'^seguidores/(?P<pk>\d+)/', views.Seguidores, name= 'seguidores'),
-    url(r'^seguidos/(?P<pk>\d+)/', views.Seguidos, name= 'seguidos'),
+    url(r'^', include('apps.redSocial.urls')),
+    url(r'^', include('apps.consumir.urls')),
+
 ]
 
 if settings.DEBUG:

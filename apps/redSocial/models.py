@@ -77,6 +77,13 @@ class Like(models.Model):
 class Comentario(models.Model):
 	usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 	post = models.ForeignKey(Post, editable=True, related_name='comentarios')
-	mensaje = models.TextField()
+	mensaje = models.TextField(blank=True, null=True)
 	fecha = models.DateTimeField(auto_now_add=True)
 	estatus = models.CharField(max_length=1)
+
+class Notificacion(models.Model):
+	emisor = models.ForeignKey(Usuario, on_delete=models.CASCADE,editable=True, related_name='emisores')
+	receptor = models.ForeignKey(Usuario, on_delete=models.CASCADE, editable=True, related_name='receptores')
+	tipo = models.CharField(max_length=1)
+	visto = models.BooleanField()
+	creado_en = models.DateTimeField(auto_now_add=True)

@@ -1,0 +1,91 @@
+
+{% extends 'base/base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+<div id="wrapper">
+        
+        {% include 'base/barranavegacion.html' %}
+        <!-- /. NAV TOP  -->
+        {% include 'base/barraizquierda.html' %}
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper">
+            <div id="page-inner">
+                
+                <!-- /. ROW  -->
+                {% include 'base/barraexplorer.html '%}
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="panel-footer">
+
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="¿Algo importante que aportar?" />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-success" type="button">Publicar</button>
+                                    </span>
+                                </div>
+                                <a href="#"  data-toggle="modal" data-target="#myModal"><i class="fa fa-camera"></i> Foto/Video</a>
+                            </div>
+                            
+                            {% block perfil %}
+
+                            {% endblock %}
+                            
+                        </div>
+
+                        <div id="myModal" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                         <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Publicar Archivo</h4>
+                                        </div>
+
+                                                <div class="modal-body">
+                                                     <div class="form-group">
+                                                        <label class="control-label col-lg-4">Subir Archivo</label>
+                                                        <div class="">
+                                                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                                <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
+                                                                <div>
+                                                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Seleccione archivo</span><span class="fileupload-exists">Cambiar</span><input type="file"></span>
+                                                                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Eliminar</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                      <div class="modal-footer">
+                                        <span class="input-group-btn">
+                                                <button class="btn btn-success" type="button">Publicar</button>
+                                        </span>
+                                      </div>
+                                    </div>
+
+                                </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            {% include 'base/paneldeperfil.html ' %}
+
+                        </div>
+                    </div>
+                    <!-- /. ROW  -->
+
+                </div>
+               
+
+
+            </div>
+              
+      
+        </div>   
+    <!-- /. WRAPPER  -->
+
+    {% include 'base/script.html ' %}
+
+    {% endblock %} 
