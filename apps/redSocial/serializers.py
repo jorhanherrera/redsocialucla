@@ -10,7 +10,7 @@ User = get_user_model()
 class UserSerializer(ModelSerializer):
 	class Meta:
 		model = User
-		fields = ('username','first_name','last_name','last_login','email','is_superuser','is_active')
+		fields = ('username','first_name','last_name','foto','last_login','email','is_superuser','is_active')
 
 class PropietarioSerializer(ModelSerializer):
 	class Meta:
