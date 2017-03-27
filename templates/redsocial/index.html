@@ -107,12 +107,12 @@
                                     
                              <div class="form-group">
                                 <label>Ingrese Cédula</label>
-                                <input class="form-control" type="text">
+                                <input id="registro_cedula" class="form-control" type="text">
                                  <p class="help-block">Esta red social es solo para egresados de la Ucla</p>
                             </div>
 
                              
-                            <button type="submit" class="btn btn-info">Consultar </button>
+                            <button type="submit" class="btn btn-info" onclick="Consultar()">Consultar </button>
 
                         </form>
                     </div>
@@ -128,4 +128,5 @@
 
 
     {% include 'base/script.html '%}
+    <script src="{% static 'js/consumir/registro.js' %}"></script>
 {% endblock %}

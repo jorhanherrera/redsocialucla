@@ -7,6 +7,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^index/',views.index),
     url(r'^inicio/',views.inicio),
+    url(r'^registro/',views.registrousuario),
     url(r'^areadeinteres/',views.areadeinteres),
     url(r'^canales/',views.canales),
     url(r'^perfil/',views.perfil),

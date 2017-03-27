@@ -81,19 +81,22 @@ function TimelinePublico() {
 
 	saveNewPost = function() {
 
-		$.ajax({
-			type:"POST",
-			url : "http://localhost:8000/entities/public-timeline/",
-			dataType : "json",
-			data : {"contenido" : "nuevo post", "estatus": "1" },
-		 	success : function(data) {
-		 		self.posts([]);		 		
-		 		loadTimeline(); 		
-			},
-	 	});		
+
+	 $.ajax({
+      type:"POST",
+      url : 'http://localhost:8000/entities/public-timeline/',
+      dataType : "json",
+      data : JSON.stringify({"contenido" : self.new_post() }),
+
+      success : function(data) {
+      	console.log(data);
+        self.posts([]);       
+        loadTimeline();	     
+      },
+    });   
 		
 	}
-	
+		
 }
 
 var timelinePublico = new TimelinePublico();
