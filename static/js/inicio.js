@@ -62,18 +62,20 @@ function HomeVM() {
 	}
 
 	saveNewPost = function() {
-
-		$.ajax({
-			type:"POST",
-			url : "entities/timeline/"  + "?&authenticity_token= xxxxxxxxx",
-			dataType : "json",
-			data : JSON.stringify({"content" : self.new_post(), "owner" : {"username" : self.current_user} }),
-		 	success : function(data) {
-		 		self.posts([]);		 		
-		 		loadTimeline(); 		
-			},
-	 	});		
 		
+		$('#btn_publicar').click(function () {
+			var post = $("#post").val();
+			$.ajax({
+				type:"POST",
+				url : "entities/public-timeline/",
+				dataType : "json",
+				data : JSON.stringify({"post" : self.new_post(), "owner" : {"username" : self.current_user} }),
+			 	success : function(data) {
+			 		self.posts([]);		 		
+			 		loadTimeline(); 		
+				},
+		 	});		
+		});
 	}
 	
 }
@@ -81,3 +83,5 @@ function HomeVM() {
 var homeVM = new HomeVM();
 homeVM.load();
 ko.applyBindings(homeVM);
+
+
