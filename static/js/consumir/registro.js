@@ -48,13 +48,13 @@ function Consultar() {
 				
 				$.ajax({
 					type: "GET",
-					url : "http://localhost:8000/entities/cumlaude"+r_cedula,
+					url : "http://localhost:8000/entities/cumlaude/"+r_cedula,
 					dataType : "json",
 					success : function(data) {
 		            	window.location="http://localhost:8000/registro";
 					},
 					error : function(xhr, ajaxOptions, thrownError){
-						//alert(xhr.status);
+						alert(xhr.status);
 					}
 				});
 		}

@@ -226,7 +226,7 @@ class EventoViewSet(viewsets.ModelViewSet):
 @permission_classes((AllowAny,))
 def CumlaudeConsulta(request, pk):
 	import urllib.request
-	req = urllib.request.Request('http://127.0.0.1:8001/Estudiantes/'+pk+"/")
+	req = urllib.request.Request('http://localhost:8001/Estudiantes/'+pk+"/")
 	with urllib.request.urlopen(req) as response:
 		the_page = response.read()
 		json_data = json.loads(the_page.decode("utf-8"))
