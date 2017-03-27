@@ -73,7 +73,7 @@ class MultimediaViewSet(viewsets.ModelViewSet):
 class PublicTimelineViewSet(viewsets.ModelViewSet):
 	queryset = Post.objects.all().order_by('-creado_en')
 	serializer_class = PostSerializer
-
+	
 	def create(self, request):
 		json_data = json.loads(request.body.decode("utf-8"))#el decode "uft-8" convierte en string un byte
 		user = request.user

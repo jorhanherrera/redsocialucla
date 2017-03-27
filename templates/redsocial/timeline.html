@@ -24,9 +24,9 @@
                                     <div class="panel-footer">
 
                                         <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="¿Algo importante que aportar?" />
+                                            <input type="text" class="form-control" data-bind="value: newpost" placeholder="¿Algo importante que aportar?" />
                                             <span class="input-group-btn">
-                                                <button class="btn btn-success" type="button">Publicar</button>
+                                                <button class="btn btn-success" data-bind="click: saveNewPost" type="button">Publicar</button>
                                             </span>
                                         </div>
                                         <a href="#"  data-toggle="modal" data-target="#myModal"><i class="fa fa-camera"></i> Foto/Video</a>
@@ -138,6 +138,9 @@
                            
     
                         </div>
+
+
+                     
 {% endblock timeline %}
 
 {% block js_in_footer%}
