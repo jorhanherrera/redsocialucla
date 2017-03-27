@@ -30,22 +30,19 @@
                         <form role="form">
                                     
                             <div class="form-group">
-                                    <label>Ingrese Correo</label>
-                                    <input class="form-control" type="text">
-                                    <p class="help-block">ejemplo@mail.com</p>
+                                    <label>Ingrese nombre de usuario</label>
+                                    <input id="registro_username" class="form-control" type="text">
                             </div>
                             <div class="form-group">
                                     <label>Ingrese Contraseña</label>
-                                    <input class="form-control" type="password">
-                                    <p class="help-block">texto ayuda</p>
+                                    <input id="registro_pass1" class="form-control" type="password">
                             </div>
                             <div class="form-group">
                                     <label>Repita Contraseña</label>
-                                    <input class="form-control" type="password">
-                                 <p class="help-block">texto ayuda</p>
+                                    <input id="registro_pass2" class="form-control" type="password">
                             </div>
                              
-                                    <button type="submit" class="btn btn-danger">Register Now </button>
+                                    <button type="button" onclick="Registrar()" class="btn btn-danger">Register Now </button>
 
                         </form>
                     </div>
@@ -70,7 +67,7 @@
     <script src="{% static 'js/jquery.metisMenu.js' %}"></script>
        <!-- CUSTOM SCRIPTS -->
     <script src="{% static 'js/jquery-1.10.2.js' %}"></script>
-    
+    <script src="{% static 'js/consumir/registro.js' %}"></script>
 
 
 </body>

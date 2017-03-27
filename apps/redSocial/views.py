@@ -22,6 +22,7 @@ from rest_framework.permissions import AllowAny
 class UserViewSet(viewsets.ModelViewSet):
 	queryset = User.objects.filter(id=-1)
 	serializer_class = UserSerializer
+	permission_classes = (AllowAny,)
 
 	#Devuelve la informacion de un usuario segun su pk
 	def retrieve(self, request, pk):
